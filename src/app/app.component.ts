@@ -18,4 +18,8 @@ export class AppComponent {
 
   }
 
+  onSubmit() {
+    console.log(this.form.value);
+  }
+
 }
