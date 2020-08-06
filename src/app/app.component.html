@@ -9,11 +9,17 @@
       <div class="col-md-4 offset-md-4">
         <div class="form-group">
           <label>Informe o CEP</label>
-          <input type="text" class="form-control" formControlName="cep" mask="00000-000" />
+          <input
+            type="text"
+            class="form-control"
+            formControlName="cep"
+            mask="00000-000"
+          />
         </div>
       </div>
       <div class="col-md-4">
         <button
+          [disabled]="!form.valid || !validCepLegnth"
           type="submit"
           class="btn btn-primary btn-round input-line-button"
         >
@@ -23,8 +29,48 @@
     </div>
   </form>
   <div class="row">
-    <div class="col-md-12">
-      {{ ceps | json }}
+    <div class="col-md-12 text-center">
+      <h4>Pesquisar</h4>
+    </div>
+  </div>
+  <app-search [cepList]="cepsList" (output)="applyFilter($event)"></app-search>
+  <div *ngIf="ceps.length > 0">
+    <div class="row">
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <b>UF</b>
+      </div>
+      <div class="col-md-2">
+        <b>Cidade</b>
+      </div>
+      <div class="col-md-2">
+        <b>Logradouro</b>
+      </div>
+      <div class="col-md-2">
+        <b>CEP</b>
+      </div>
+      <div class="col-md-2">
+        <b>Ação</b>
+      </div>
+    </div>
+    <div class="row" *ngFor="let cep of ceps; let i = index">
+      <div class="col-md-2">
+        {{ cep.uf }}
+      </div>
+      <div class="col-md-2">
+        {{ cep.localidade }}
+      </div>
+      <div class="col-md-2">
+        {{ cep.logradouro }}
+      </div>
+      <div class="col-md-2">
+        {{ cep.cep }}
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-danger" (click)="exclude(i)">Excluir</button>
+      </div>
     </div>
   </div>
 </div>

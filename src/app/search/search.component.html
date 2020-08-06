@@ -1,0 +1,30 @@
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>CEP</label>
+                <input type="text" class="form-control" formControlName="cep" mask="00000-000">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>UF</label>
+                <input type="text" class="form-control" formControlName="uf">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Cidade</label>
+                <input type="text" class="form-control" formControlName="city">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-primary">Pesquisar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <button class="btn btn-secondary">Limpar filtros</button>
+        </div>
+    </div>
+</form>
