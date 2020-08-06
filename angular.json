@@ -29,10 +29,10 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
@@ -126,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "zipcode-challenge"
+    }
+  },
+  "defaultProject": "zipcode-challenge",
+  "cli": {
+    "analytics": "b14f714a-f27c-4412-8f46-926f615ad22d"
+  }
 }

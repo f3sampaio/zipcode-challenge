@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'zipcode-challenge';
+
+  public form = this.fb.group({
+    cep: [{value: '', disabled: false}, Validators.required]
+  });
+
+  constructor(
+    private fb: FormBuilder
+  ) {
+
+  }
+
 }
