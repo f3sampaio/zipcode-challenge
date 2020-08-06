@@ -4,12 +4,12 @@
       <h1>Desafio</h1>
     </div>
   </div>
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-4 offset-md-4">
         <div class="form-group">
           <label>Informe o CEP</label>
-          <input type="text" class="form-control" formControlName="cep" mask="000.000.000-00" />
+          <input type="text" class="form-control" formControlName="cep" mask="00000-000" />
         </div>
       </div>
       <div class="col-md-4">
@@ -22,4 +22,9 @@
       </div>
     </div>
   </form>
+  <div class="row">
+    <div class="col-md-12">
+      {{ ceps | json }}
+    </div>
+  </div>
 </div>

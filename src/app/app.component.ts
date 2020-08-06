@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ViacepService } from './viacep.service';
 
 @Component({
   selector: 'app-root',
@@ -12,14 +13,19 @@ export class AppComponent {
     cep: [{value: '', disabled: false}, Validators.required]
   });
 
+  public ceps: any[] = [];
+
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private viaCepService: ViacepService
   ) {
 
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    this.viaCepService.getCep(this.form.get('cep').value).subscribe((res: any) => {
+      this.ceps.push(res);
+    });
   }
 
 }
